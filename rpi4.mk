@@ -14,8 +14,13 @@
 # limitations under the License.
 #
 
-USE_OEM_TV_APP := true
-$(call inherit-product, device/google/atv/products/atv_base.mk)
+# Tablet
+$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_no_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/go_defaults.mk)
+
+# TV
+#USE_OEM_TV_APP := true
+#$(call inherit-product, device/google/atv/products/atv_base.mk)
 
 PRODUCT_NAME := rpi4
 PRODUCT_DEVICE := rpi4
@@ -31,11 +36,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     gralloc.drm.device=/dev/dri/card1 \
     ro.opengles.version=196609 \
     wifi.interface=wlan0 \
-    ro.rfkilldisabled=1
+    ro.rfkilldisabled=1 \
+    qemu.hw.mainkeys=0
 
 # application packages
 PRODUCT_PACKAGES += \
-    DeskClock \
     RpLauncher
 
 # system packages
@@ -123,7 +128,7 @@ PRODUCT_COPY_FILES := \
     $(PRODUCT_COPY_FILES)
 
 DEVICE_PACKAGE_OVERLAYS := device/arpi/rpi4/overlay
-PRODUCT_AAPT_PREF_CONFIG := tvdpi
-PRODUCT_CHARACTERISTICS := tv
+PRODUCT_AAPT_PREF_CONFIG := mdpi
+PRODUCT_CHARACTERISTICS := tablet
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
