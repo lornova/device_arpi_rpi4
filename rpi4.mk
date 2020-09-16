@@ -41,7 +41,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # application packages
 PRODUCT_PACKAGES += \
-    RpLauncher
+    Launcher3
 
 # system packages
 PRODUCT_PACKAGES += \
