@@ -87,7 +87,7 @@ Create Android 10 Image
   - ```cd device/arpi/rpi4```
   - ```sudo ./mkimg.sh```
   
-Note: Depending on system.img size, change system partition size [mkimg.sh]()
+Note: Depending on system.img size, change system partition size [mkimg.sh](https://github.com/lohriialo/device_arpi_rpi4/blob/arpi-10-tablet/mkimg.sh#L32)
 
 Flash Image to SD Card or USB pendrive or SSD
 -------------
