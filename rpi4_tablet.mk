@@ -22,8 +22,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/go_defaults.mk)
 #USE_OEM_TV_APP := true
 #$(call inherit-product, device/google/atv/products/atv_base.mk)
 
-PRODUCT_NAME := rpi4
-PRODUCT_DEVICE := rpi4
+PRODUCT_NAME := rpi4_tablet
+PRODUCT_DEVICE := rpi4_tablet
 PRODUCT_BRAND := arpi
 PRODUCT_MANUFACTURER := ARPi
 PRODUCT_MODEL := Raspberry Pi 4
@@ -31,7 +31,7 @@ PRODUCT_MODEL := Raspberry Pi 4
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.drm.mode.force=1280x720 \
+    debug.drm.mode.force=1024x600 \
     gralloc.drm.kms=/dev/dri/card0 \
     gralloc.drm.device=/dev/dri/card1 \
     ro.opengles.version=196609 \
@@ -127,7 +127,7 @@ PRODUCT_COPY_FILES := \
     frameworks/base/data/sounds/effects/ogg/camera_click_48k.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ui/camera_click.ogg \
     $(PRODUCT_COPY_FILES)
 
-DEVICE_PACKAGE_OVERLAYS := device/arpi/rpi4/overlay
+DEVICE_PACKAGE_OVERLAYS := device/arpi/rpi4_tv/overlay
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 PRODUCT_CHARACTERISTICS := tablet
 

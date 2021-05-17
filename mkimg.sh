@@ -4,7 +4,7 @@ ARPIVERSION=arpi-10.0
 DATE=`date +%Y%m%d`
 IMGNAME=$ARPIVERSION-$DATE-rpi4.img
 IMGSIZE=4
-OUTDIR=${ANDROID_PRODUCT_OUT:="../../../out/target/product/rpi4"}
+OUTDIR=${ANDROID_PRODUCT_OUT:="../../../out/target/product/rpi4_tablet"}
 
 if [ `id -u` != 0 ]; then
 	echo "Must be root to run script!"

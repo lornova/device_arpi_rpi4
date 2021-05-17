@@ -30,6 +30,10 @@ Syncing Android 10 source code, more details https://github.com/android-rpi/loca
   - `repo init -u https://android.googlesource.com/platform/manifest -b android-10.0.0_r41`
   - `git clone https://github.com/android-rpi/local_manifests .repo/local_manifests -b arpi-10`
   - `repo sync`
+
+Addr pi4_tablet device:
+-------------
+  - `git clone https://github.com/lornova/device_arpi_rpi4_tablet.git device/arpi/rpi4_tablet`
   
 (Optional) if network error :
 -------------
@@ -45,13 +49,6 @@ Now that we have the source code synced, we need to modify a few things for it t
   - Apply second bluetooth [patch](https://github.com/android-rpi/device_arpi_rpi4/wiki/Android-10-:-patch-framework-source#disable-low-power-mode-of-bluetooth)
   - Apply third software video decoder [patch](https://github.com/android-rpi/device_arpi_rpi4/wiki/Android-10-:-patch-framework-source#enable-legacy-sw-video-decoder)
   - Apply fourth [patch](https://github.com/android-rpi/device_arpi_rpi4/blob/arpi-11/Generic.kl#L85) to modify keyboard layout to include power menu, edit ```key 63 F5``` to ```key 63 POWER``` at `/device/arpi/rpi4/Generic.kl`
-
-Patch boot from USB instead of SdCard
--------------
-Default boot mode is via SD card but for better performance if you want to boot from a USB drive(SSD/Pendrive 3.0 etc), change the boot mode to USB. Modify the file at /device/arpi/rpi4/fstab.rpi4
-  - edit ```/dev/block/mmcblk0p2``` to ```/dev/block/sda2```
-  - edit ```/dev/block/mmcblk0p3``` to ```/dev/block/sda3```
-  - edit ```/dev/block/mmcblk0p4``` to ```/dev/block/sda4```
 
 Build Raspberry Pi 4 Kernel
 -------------
@@ -69,7 +66,7 @@ Build AOSP source
  
   - `cd WORKING_DIRECTORY`
   - ```source build/envsetup.sh```
-  - ```lunch rpi4-eng```
+  - ```lunch rpi4_tablet-eng```
   - ```make ramdisk systemimage vendorimage```
   - (Or a single command : ```source build/envsetup.sh && lunch rpi4-eng && make ramdisk systemimage vendorimage```)
 
